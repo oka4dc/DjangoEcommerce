@@ -26,11 +26,11 @@ from rest_framework import permissions
 
 schema_view = get_schema_view(
     openapi.Info(
-        title="pearmonie API",
+        title="paybox 360 API",
         default_version="v1",
-        description="Welcome to the API for pearmonie Ecomerce API. Please do not use without permissions",
-        terms_of_service="https://www.pearmonie.co",
-        contact=openapi.Contact(email="support@pearmonie.co"),
+        description="Welcome to the API for paybox Ecomerce API. Please do not use without permissions",
+        terms_of_service="https://www.paybox.co",
+        contact=openapi.Contact(email="support@paybox.co"),
         license=openapi.License(name="Awesome IP"),
     ),
     public=True,
@@ -42,7 +42,7 @@ urlpatterns = [
     path("", schema_view.with_ui("redoc", cache_timeout=0), name="schema-redoc"),
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     path('admin/', admin.site.urls),
-    #path(ROOT_API_URL+'api/', include('Order_App.urls')),
+    path(ROOT_API_URL+'api/', include('Orders.urls')),
     path(ROOT_API_URL+'api/auth/', include('Users.urls')),
     path(ROOT_API_URL+'api/products/', include('products.urls')),
     path(ROOT_API_URL+'api/catergory/', include('catergory.urls')),
